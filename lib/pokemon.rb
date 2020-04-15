@@ -13,20 +13,22 @@ class Pokemon
   
   def self.save(name, type, db)
     db.execute("INSERT INTO pokemon(name, type) VALUES (?,?)", name, type)
-      def save
-    if self.id
-      self.update
-    else
-      sql = <<-SQL
-        INSERT INTO students (name, grade)
-        VALUES (?,?)
-        SQL
     
-      DB[:conn].execute(sql, self.name, self.grade)
-      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
-    end
-  end
-  end
+  end  
+  #     def save
+  #   if self.id
+  #     self.update
+  #   else
+  #     sql = <<-SQL
+  #       INSERT INTO students (name, grade)
+  #       VALUES (?,?)
+  #       SQL
+    
+  #     DB[:conn].execute(sql, self.name, self.grade)
+  #     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
+  #   end
+  # end
+
 
   def self.find(id_number, db)
     pokemon_find = db.execute("SELECT * FROM pokemon WHERE id=?", id_number).first
